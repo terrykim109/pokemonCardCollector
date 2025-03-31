@@ -59,7 +59,33 @@ int main() {
     std::cout << "Your Pokémon Card Collection:" << std::endl;
     for (const auto& card : collection) {
         card.displayCard();
+        // A crude art of Pikachu as an interface with special characters
         std::cout << "*--*--*--*--*--*--*--*--*\n";
+        std::cout << "(\\__/)\n";
+        std::cout << "(o^.^)\n";
+        std::cout << "c(\")_(\")\n";
+        std::cout << "*--*--*--*--*--*--*--*--*\n";
+
+    }
+
+    // Search feature for cards by name
+    std::string searchName;
+    std::cout << "Would you like to search for a card by name? (y/n): ";
+    std::cin >> choice;
+    if (choice == 'y' || choice == 'Y') {
+        std::cout << "Enter the name of the card to search: ";
+        std::cin >> searchName;
+        bool found = false;
+        for (const auto& card : collection) {
+            if (card.getName() == searchName) {
+                std::cout << "\nCard Found:" << std::endl;
+                card.displayCard();
+                found = true;
+            }
+        }
+        if (!found) {
+            std::cout << "No card with the name '" << searchName << "' was found in your collection." << std::endl;
+        }
     }
 
     return 0;

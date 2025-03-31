@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 class PokemonCard {
 private:
@@ -10,22 +11,17 @@ private:
     std::string type;
     int hp;
     int rarity;
-    int collectionCount;
+    int cardCounts;
     int yearPurchased;
+    std::vector<std::string> abilities;
 
 public:
     
-    PokemonCard(std::string n, std::string t, int h, int r, int count, int year)
-        : name(n), type(t), hp(h), rarity(r), collectionCount(count), yearPurchased(year) {}
+PokemonCard(std::string n, std::string t, int h, int r, int count, int year, std::vector<std::string> ab);
 
-    void displayCard() const {
-        std::cout << "Name: " << name << "\n"
-                  << "Type: " << type << "\n"
-                  << "HP: " << hp << "\n"
-                  << "Rarity: " << rarity << "\n"
-                  << "Collection Count: " << collectionCount << "\n"
-                  << "Year Purchased: " << yearPurchased << "\n";
-    }
+    std::string getName() const;
+    
+    void displayCard() const;
 };
 
 #endif
