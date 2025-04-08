@@ -23,9 +23,11 @@ int main()
     std::cout << "What would you like to do?\n";
     std::cout << "1. View existing collection\n";
     std::cout << "2. Add new cards\n";
-    std::cout << "Enter your choice (1 or 2): ";
+    std::cout << "3. Delete a card\n";
+    std::cout << "Enter your choice (1, 2 or 3): ";
     std::cin >> choice;
 
+    // View existing collection
     if (choice == '1')
     {
         if (collection.empty())
@@ -43,6 +45,7 @@ int main()
         }
     }
 
+    // Add new cards
     if (choice == '2')
     {
         do
@@ -122,6 +125,28 @@ int main()
         {
             card.displayCard();
             std::cout << "*--*--*--*--*--*--*--*--*\n";
+        }
+    }
+
+    // Delete a card
+    if (choice == '3')
+    {
+        std::string cardToDelete;
+        std::cout << "Enter the name of the card to delete: ";
+        std::cin >> cardToDelete;
+
+        auto it = std::remove_if(collection.begin(), collection.end(),
+                                   [&cardToDelete](const PokemonCard &card) { return card.getName() == cardToDelete; });
+
+        if (it != collection.end())
+        {
+            collection.erase(it, collection.end());
+            std::cout << "Your card named '" << cardToDelete << "' has been deleted from your collection." << std::endl;
+            saveCollection(collection);
+        }
+        else
+        {
+            std::cout << "No card with the name '" << cardToDelete << "' was found in your collection." << std::endl;
         }
     }
 
