@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <sstream>
 #include "pokemonCollection.h"
 
 int main()
@@ -24,7 +25,8 @@ int main()
     std::cout << "1. View existing collection\n";
     std::cout << "2. Add new cards\n";
     std::cout << "3. Delete a card\n";
-    std::cout << "Enter your choice (1, 2 or 3): ";
+    std::cout << "4. Export collection to file\n";
+    std::cout << "Enter your choice (1, 2, 3 or 4): ";
     std::cin >> choice;
 
     // View existing collection
@@ -150,6 +152,9 @@ int main()
         }
     }
 
+    if (choice == '4') {
+        PokemonCard::exportToCSV(collection);
+     }
     // Search feature for cards by name
     std::string searchName;
     std::cout << "Would you like to search for a card by name? (y/n): ";

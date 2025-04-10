@@ -26,15 +26,14 @@ public:
 
     void saveToFile(std::ofstream &outFile) const;
     static PokemonCard loadFromFile(std::ifstream &inFile);
+    void static exportToCSV(const std::vector<PokemonCard> &collection);
 
+    friend std::ostream &operator<<(std::ostream &os, const PokemonCard &card);
+    friend std::istream &operator>>(std::istream &is, PokemonCard &card);
+};
 
-    friend std::ostream& operator<<(std::ostream& os, const PokemonCard& card);
-    friend std::istream& operator>>(std::istream &is, PokemonCard &card);
-}; 
+void saveCollection(const std::vector<PokemonCard> &collection);
 
-
-void saveCollection(const std::vector<PokemonCard>& collection);
-
-void loadCollection(std::vector<PokemonCard>& collection);
+void loadCollection(std::vector<PokemonCard> &collection);
 
 #endif
