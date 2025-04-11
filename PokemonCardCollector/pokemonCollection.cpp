@@ -1,15 +1,46 @@
 #include "pokemonCollection.h"
 #include <fstream>
 
-const std::string FILE_NAME = "pokemon_collection.txt";
-
 PokemonCard::PokemonCard(std::string n, std::string t, int h, char r, int count, int year, std::vector<std::string> ab)
     : name(n), type(t), hp(h), rarity(r), cardCounts(count), yearPurchased(year), abilities(ab) {}
+
+//Gettors
 
 std::string PokemonCard::getName() const
 {
     return name;
 }
+
+std::string PokemonCard::getType() const
+{
+    return type;
+}
+
+int PokemonCard::getHP() const
+{
+    return hp;
+}
+
+char PokemonCard::getRarity() const
+{
+    return rarity;
+}
+
+int PokemonCard::getCount() const
+{
+    return cardCounts;
+}
+
+int PokemonCard::getYearPurchased() const
+{
+    return yearPurchased;
+}
+
+std::vector<std::string> PokemonCard::getAbilities() const
+{
+    return abilities;
+}
+
 
 void PokemonCard::displayCard() const
 {
@@ -73,7 +104,7 @@ PokemonCard PokemonCard::loadFromFile(std::ifstream &inFile)
     return PokemonCard(name, type, hp, rarity, count, year, abilities);
 }
 
-std::ostream &operator<<(std::ostream &os, const PokemonCard &card)
+std::ostream& operator<<(std::ostream &os, const PokemonCard &card)
 {
     os << card.name << '\n'
        << card.type << '\n'
@@ -89,7 +120,7 @@ std::ostream &operator<<(std::ostream &os, const PokemonCard &card)
     return os;
 }
 
-std::istream &operator>>(std::istream &is, PokemonCard &card)
+std::istream& operator>>(std::istream &is, PokemonCard &card)
 {
     std::getline(is, card.name);
     std::getline(is, card.type);
@@ -109,70 +140,4 @@ std::istream &operator>>(std::istream &is, PokemonCard &card)
     return is;
 }
 
-void saveCollection(const std::vector<PokemonCard> &collection)
-{
-    std::ofstream outFile(FILE_NAME);
-    if (!outFile)
-    {
-        std::cerr << "Error saving collection!\n";
-        return;
-    }
-    outFile << collection.size() << '\n';
-    for (const auto &card : collection)
-    {
-        outFile << card;
-    }
-}
 
-void loadCollection(std::vector<PokemonCard> &collection)
-{
-    std::ifstream inFile(FILE_NAME);
-    if (!inFile)
-        return;
-
-    int size;
-    inFile >> size;
-    inFile.ignore();
-
-    collection.clear();
-    for (int i = 0; i < size; ++i)
-    {
-        PokemonCard card("", "", 0, 'C', 0, 2000, {});
-        inFile >> card;
-        collection.push_back(card);
-    }
-}
-
-void PokemonCard::exportToCSV(const std::vector<PokemonCard> &collection)
-{
-    std::ofstream outFile("pokemonCollection.csv");
-    if (!outFile)
-    {
-        std::cerr << "Error creating the file.\n";
-        return;
-    }
-
-    outFile << "Name,Type,HP,Rarity,Count,Year,Abilities\n";
-
-    for (const auto &card : collection)
-    {
-        outFile << card.getName() << ","
-                << card.type << ","
-                << card.hp << ","
-                << card.rarity << ","
-                << card.cardCounts << ","
-                << card.yearPurchased << ",";
-
-        for (size_t i = 0; i < card.abilities.size(); ++i)
-        {
-            outFile << card.abilities[i];
-            if (i < card.abilities.size() - 1)
-                outFile << " / ";
-        }
-
-        outFile << "\n";
-    }
-
-    outFile.close();
-    std::cout << "Collection exported to 'pokemonCollection.csv'\n";
-}

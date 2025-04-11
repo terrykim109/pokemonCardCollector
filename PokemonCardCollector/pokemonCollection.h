@@ -21,6 +21,12 @@ public:
     PokemonCard(std::string n, std::string t, int h, char r, int count, int year, std::vector<std::string> ab);
 
     std::string getName() const;
+    std::string getType() const;
+    int getHP() const;
+    char getRarity() const;
+    int getCount() const;
+    int getYearPurchased() const;
+    std::vector<std::string> getAbilities() const;
 
     void displayCard() const;
 

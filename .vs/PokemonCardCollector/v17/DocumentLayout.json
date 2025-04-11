@@ -11,6 +11,14 @@
       "RelativeMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|solutionrelative:PokemonCardCollector\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|solutionrelative:PokemonCardCollector\\pokemonIO.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|solutionrelative:PokemonCardCollector\\pokemonIO.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonCollection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6AF608FC-5F67-42CD-A14E-FEAA59543D21}|PokemonCardCollector\\PokemonCardCollector.vcxproj|solutionrelative:PokemonCardCollector\\pokemonCollection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,13 +46,39 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "pokemonIO.h",
+              "DocumentMoniker": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.h",
+              "RelativeDocumentMoniker": "PokemonCardCollector\\pokemonIO.h",
+              "ToolTip": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.h",
+              "RelativeToolTip": "PokemonCardCollector\\pokemonIO.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-11T03:05:17.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "pokemonIO.cpp",
+              "DocumentMoniker": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.cpp",
+              "RelativeDocumentMoniker": "PokemonCardCollector\\pokemonIO.cpp",
+              "ToolTip": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonIO.cpp",
+              "RelativeToolTip": "PokemonCardCollector\\pokemonIO.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-11T03:05:07.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\main.cpp",
               "RelativeDocumentMoniker": "PokemonCardCollector\\main.cpp",
               "ToolTip": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\main.cpp",
               "RelativeToolTip": "PokemonCardCollector\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAGAAAA",
+              "ViewState": "AQIAAJMAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-03T02:57:38.166Z",
               "EditorCaption": ""
@@ -57,20 +91,20 @@
               "RelativeDocumentMoniker": "PokemonCardCollector\\pokemonCollection.cpp",
               "ToolTip": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonCollection.cpp",
               "RelativeToolTip": "PokemonCardCollector\\pokemonCollection.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHsAAAAFAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAA0AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-03T01:20:28.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "pokemonCollection.h",
               "DocumentMoniker": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonCollection.h",
               "RelativeDocumentMoniker": "PokemonCardCollector\\pokemonCollection.h",
               "ToolTip": "C:\\Users\\froze\\Desktop\\Pokemon Collection\\PokemonCardCollector\\pokemonCollection.h",
               "RelativeToolTip": "PokemonCardCollector\\pokemonCollection.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAABJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-03T01:20:30.644Z",
               "EditorCaption": ""

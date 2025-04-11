@@ -1,4 +1,3 @@
-﻿  main.cpp
-  pokemonCollection.cpp
-  Generating Code...
-  PokemonCardCollector.vcxproj -> C:\Users\froze\Desktop\Pokemon Collection\x64\Debug\PokemonCardCollector.exe
+﻿  pokemonIO.cpp
+main.obj : error LNK2019: unresolved external symbol "public: static void __cdecl PokemonCard::exportToCSV(class std::vector<class PokemonCard,class std::allocator<class PokemonCard> > const &)" (?exportToCSV@PokemonCard@@SAXAEBV?$vector@VPokemonCard@@V?$allocator@VPokemonCard@@@std@@@std@@@Z) referenced in function main
+C:\Users\froze\Desktop\Pokemon Collection\x64\Debug\PokemonCardCollector.exe : fatal error LNK1120: 1 unresolved externals

@@ -18,12 +18,18 @@
     <ClInclude Include="pokemonCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="pokemonIO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pokemonCollection.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pokemonIO.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
