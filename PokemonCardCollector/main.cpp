@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <map>
 #include "pokemonCollection.h"
 
 int main()
@@ -26,7 +27,8 @@ int main()
     std::cout << "2. Add new cards\n";
     std::cout << "3. Delete a card\n";
     std::cout << "4. Export collection to file\n";
-    std::cout << "Enter your choice (1, 2, 3 or 4): ";
+    std::cout << "5. View collection stats\n";
+    std::cout << "Enter your choice (1, 2, 3, 4 or 5): ";
     std::cin >> choice;
 
     // View existing collection
@@ -138,7 +140,8 @@ int main()
         std::cin >> cardToDelete;
 
         auto it = std::remove_if(collection.begin(), collection.end(),
-                                   [&cardToDelete](const PokemonCard &card) { return card.getName() == cardToDelete; });
+                                 [&cardToDelete](const PokemonCard &card)
+                                 { return card.getName() == cardToDelete; });
 
         if (it != collection.end())
         {
@@ -152,9 +155,69 @@ int main()
         }
     }
 
-    if (choice == '4') {
+    // Export to the csv file.
+    if (choice == '4')
+    {
         PokemonCard::exportToCSV(collection);
-     }
+    }
+
+    // Show the whole collection and its stats.
+
+    if (choice == '5')
+    {
+        if (collection.empty())
+        {
+            std::cout << "Your collection is currently empty." << std::endl;
+        }
+        else
+        {
+            // Setting the initial data
+            int totalCards = 0;
+            int totalUnique = collection.size();
+            int highestHP = 0;
+            std::string strongestCard;
+            std::map<char, int> rarityCount; // Using Map for the rarities of the collected cards
+            int oldestYear = 3000, newestYear = 0;
+            std::string oldestCard, newestCard;
+
+            for (const auto &card : collection)
+            {
+                totalCards += card.getCount();
+                rarityCount[card.getRarity()]++;
+
+                if (card.getHP() > highestHP)
+                {
+                    highestHP = card.getHP();
+                    strongestCard = card.getName();
+                }
+
+                if (card.getYearPurchased() < oldestYear)
+                {
+                    oldestYear = card.getYearPurchased();
+                    oldestCard = card.getName();
+                }
+                if (card.getYearPurchased() > newestYear)
+                {
+                    newestYear = card.getYearPurchased();
+                    newestCard = card.getName();
+                }
+            }
+            std::cout << "\n=== Collection Stats ===\n";
+     
+            std::cout << "Total cards (including extra copies): " << totalCards << "\n";
+            std::cout << "Total unique cards: " << totalUnique << "\n";
+            std::cout << "Rarity Breakdown:\n";
+            for (const auto &[rarity, count] : rarityCount)
+            {
+                std::cout << "  " << rarity << ": " << count << "\n";
+            }
+
+            std::cout << "Strongest card (highest HP): " << strongestCard << " (" << highestHP << " HP)\n";
+            std::cout << "Oldest card: " << oldestCard << " (" << oldestYear << ")\n";
+            std::cout << "Newest card: " << newestCard << " (" << newestYear << ")\n";
+            std::cout << "========================\n";
+        }
+    }
     // Search feature for cards by name
     std::string searchName;
     std::cout << "Would you like to search for a card by name? (y/n): ";
