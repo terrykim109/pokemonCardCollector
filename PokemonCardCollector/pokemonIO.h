@@ -9,8 +9,8 @@
 
 extern const std::string FILE_NAME;
 
-void saveCollection(const std::vector<PokemonCard>& collection);
-void loadCollection(std::vector<PokemonCard>& collection);
-void exportToCSV(const std::vector<PokemonCard>& collection);
+void saveCollection(const std::vector<PokemonCard> &collection);
+void loadCollection(std::vector<PokemonCard> &collection);
+void exportToCSV(const std::vector<PokemonCard> &collection);
 
 #endif

@@ -1,10 +1,13 @@
 #include "pokemonCollection.h"
 #include <fstream>
 
+const std::string FILE_NAME = "pokemon_collection.txt";
+
+// Constructor
 PokemonCard::PokemonCard(std::string n, std::string t, int h, char r, int count, int year, std::vector<std::string> ab)
     : name(n), type(t), hp(h), rarity(r), cardCounts(count), yearPurchased(year), abilities(ab) {}
 
-//Gettors
+// Gettors
 
 std::string PokemonCard::getName() const
 {
@@ -40,7 +43,6 @@ std::vector<std::string> PokemonCard::getAbilities() const
 {
     return abilities;
 }
-
 
 void PokemonCard::displayCard() const
 {
@@ -104,7 +106,7 @@ PokemonCard PokemonCard::loadFromFile(std::ifstream &inFile)
     return PokemonCard(name, type, hp, rarity, count, year, abilities);
 }
 
-std::ostream& operator<<(std::ostream &os, const PokemonCard &card)
+std::ostream &operator<<(std::ostream &os, const PokemonCard &card)
 {
     os << card.name << '\n'
        << card.type << '\n'
@@ -120,7 +122,7 @@ std::ostream& operator<<(std::ostream &os, const PokemonCard &card)
     return os;
 }
 
-std::istream& operator>>(std::istream &is, PokemonCard &card)
+std::istream &operator>>(std::istream &is, PokemonCard &card)
 {
     std::getline(is, card.name);
     std::getline(is, card.type);
@@ -139,5 +141,3 @@ std::istream& operator>>(std::istream &is, PokemonCard &card)
     }
     return is;
 }
-
-

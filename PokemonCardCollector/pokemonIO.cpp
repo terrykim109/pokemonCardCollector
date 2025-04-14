@@ -3,7 +3,8 @@
 
 const std::string FILE_NAME = "pokemon_collection.txt";
 
-void saveCollection(const std::vector<PokemonCard>& collection)
+// Saving to file
+void saveCollection(const std::vector<PokemonCard> &collection)
 {
     std::ofstream outFile(FILE_NAME);
     if (!outFile)
@@ -12,13 +13,14 @@ void saveCollection(const std::vector<PokemonCard>& collection)
         return;
     }
     outFile << collection.size() << '\n';
-    for (const auto& card : collection)
+    for (const auto &card : collection)
     {
         outFile << card;
     }
 }
 
-void loadCollection(std::vector<PokemonCard>& collection)
+// Loading from file
+void loadCollection(std::vector<PokemonCard> &collection)
 {
     std::ifstream inFile(FILE_NAME);
     if (!inFile)
@@ -37,7 +39,8 @@ void loadCollection(std::vector<PokemonCard>& collection)
     }
 }
 
-void exportToCSV(const std::vector<PokemonCard>& collection)
+// Exporting to CSV
+void exportToCSV(const std::vector<PokemonCard> &collection)
 {
     std::ofstream outFile("pokemonCollection.csv");
     if (!outFile)
@@ -48,16 +51,16 @@ void exportToCSV(const std::vector<PokemonCard>& collection)
 
     outFile << "Name,Type,HP,Rarity,Count,Year,Abilities\n";
 
-    for (const auto& card : collection)
+    for (const auto &card : collection)
     {
         outFile << card.getName() << ","
-            << card.getType() << ","
-            << card.getHP() << ","
-            << card.getRarity() << ","
-            << card.getCount() << ","
-            << card.getYearPurchased() << ",";
+                << card.getType() << ","
+                << card.getHP() << ","
+                << card.getRarity() << ","
+                << card.getCount() << ","
+                << card.getYearPurchased() << ",";
 
-        const auto& abilities = card.getAbilities();
+        const auto &abilities = card.getAbilities();
         for (size_t i = 0; i < abilities.size(); ++i)
         {
             outFile << abilities[i];

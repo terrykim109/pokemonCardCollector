@@ -41,7 +41,7 @@ int main()
         else
         {
             std::cout << "Your Pokemon Card Collection:\n";
-            for (const auto &card : collection)
+            for (const auto& card : collection)
             {
                 card.displayCard();
                 std::cout << "*--*--*--*--*--*--*--*--*\n";
