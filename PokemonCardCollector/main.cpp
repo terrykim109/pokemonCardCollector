@@ -28,7 +28,8 @@ int main()
     std::cout << "3. Delete a card\n";
     std::cout << "4. Export collection to file\n";
     std::cout << "5. View collection stats\n";
-    std::cout << "Enter your choice (1, 2, 3, 4 or 5): ";
+    std::cout << "6. Filter cards by type or rarity\n";
+    std::cout << "Enter your choice (1, 2, 3, 4, 5 or 6.): ";
     std::cin >> choice;
 
     // View existing collection
@@ -41,7 +42,7 @@ int main()
         else
         {
             std::cout << "Your Pokemon Card Collection:\n";
-            for (const auto& card : collection)
+            for (const auto &card : collection)
             {
                 card.displayCard();
                 std::cout << "*--*--*--*--*--*--*--*--*\n";
@@ -203,7 +204,7 @@ int main()
                 }
             }
             std::cout << "\n=== Collection Stats ===\n";
-     
+
             std::cout << "Total cards (including extra copies): " << totalCards << "\n";
             std::cout << "Total unique cards: " << totalUnique << "\n";
             std::cout << "Rarity Breakdown:\n";
@@ -216,6 +217,46 @@ int main()
             std::cout << "Oldest card: " << oldestCard << " (" << oldestYear << ")\n";
             std::cout << "Newest card: " << newestCard << " (" << newestYear << ")\n";
             std::cout << "========================\n";
+        }
+    }
+
+    if (choice == 6)
+    {
+        char filterChoice;
+        std::cout << "Filter by:\n";
+        std::cout << "1. Type\n";
+        std::cout << "2. Rarity\n";
+        std::cin >> filterChoice;
+
+        if (filterChoice == '1')
+        {
+            std::string typeFilter;
+            std::cout << "Enter type (e.g., Fire, Water, Grass): ";
+            std::cin >> typeFilter;
+
+            for (const auto &card : collection)
+            {
+                if (card.getType() == typeFilter)
+                {
+                    card.displayCard();
+                    std::cout << "*--*--*--*--*--*--*--*--*\n";
+                }
+            }
+        }
+        else if (filterChoice == '2')
+        {
+            char rarityFilter;
+            std::cout << "Enter rarity code (C, U, R, H, etc.): ";
+            std::cin >> rarityFilter;
+
+            for (const auto &card : collection)
+            {
+                if (card.getRarity() == rarityFilter)
+                {
+                    card.displayCard();
+                    std::cout << "*--*--*--*--*--*--*--*--*\n";
+                }
+            }
         }
     }
     // Search feature for cards by name
