@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <map>
+#include <algorithm>
 #include "pokemonCollection.h"
 
 int main()
@@ -28,8 +29,9 @@ int main()
     std::cout << "3. Delete a card\n";
     std::cout << "4. Export collection to file\n";
     std::cout << "5. View collection stats\n";
-    std::cout << "6. Filter cards by type or rarity\n";
-    std::cout << "Enter your choice (1, 2, 3, 4, 5 or 6.): ";
+    std::cout << "6. Filter cards by type or rarity\n";\
+    std::cout << "7. Sort collection\n";
+    std::cout << "Enter your choice (1, 2, 3, 4, 5, 6 or 7.): ";
     std::cin >> choice;
 
     // View existing collection
@@ -259,6 +261,55 @@ int main()
             }
         }
     }
+
+  
+    // Sorting the collection by user choice of criteria
+    if (choice == '7')
+    {
+        char sortChoice;
+        std::cout << "Sort by:\n";
+        std::cout << "1. Name (A-Z)\n";
+        std::cout << "2. HP (High-Low)\n";
+        std::cout << "3. Year (Old-New)\n";
+        std::cout << "4. Rarity\n";
+        std::cin >> sortChoice;
+
+        if (sortChoice == '1')
+        {
+            std::sort(collection.begin(), collection.end(),
+                      [](const PokemonCard &a, const PokemonCard &b)
+                      {
+                          return a.getName() < b.getName();
+                      });
+        }
+        else if (sortChoice == '2')
+        {
+            std::sort(collection.begin(), collection.end(),
+                      [](const PokemonCard &a, const PokemonCard &b)
+                      {
+                          return a.getHP() > b.getHP();
+                      });
+        }
+        else if (sortChoice == '3')
+        {
+            std::sort(collection.begin(), collection.end(),
+                      [](const PokemonCard &a, const PokemonCard &b)
+                      {
+                          return a.getYearPurchased() < b.getYearPurchased();
+                      });
+        }
+        else if (sortChoice == '4')
+        {
+            std::sort(collection.begin(), collection.end(),
+                      [](const PokemonCard &a, const PokemonCard &b)
+                      {
+                          return a.getRarity() < b.getRarity();
+                      });
+        }
+
+        std::cout << "Collection has been sorted!\n";
+    } 
+    
     // Search feature for cards by name
     std::string searchName;
     std::cout << "Would you like to search for a card by name? (y/n): ";
