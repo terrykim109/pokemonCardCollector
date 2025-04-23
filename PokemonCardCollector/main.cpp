@@ -16,6 +16,7 @@ int main()
     loadCollection(collection);
 
     // menu
+    while(true) {
     std::cout << "Pokemon Card Collection!" << std::endl;
     std::cout << "*--*--*--*--*--*--*--*--*\n";
     std::cout << "(\\__/)\n";
@@ -31,7 +32,8 @@ int main()
     std::cout << "5. View collection stats\n";
     std::cout << "6. Filter cards by type or rarity\n";\
     std::cout << "7. Sort collection\n";
-    std::cout << "Enter your choice (1, 2, 3, 4, 5, 6 or 7.): ";
+    std::cout << "8. Exit\n";
+    std::cout << "Enter your choice (1, 2, 3, 4, 5, 6 ,7 or 8.): ";
     std::cin >> choice;
 
     // View existing collection
@@ -309,6 +311,10 @@ int main()
 
         std::cout << "Collection has been sorted!\n";
     } 
+
+    if (choice == 8) break;
+}
+
     
     // Search feature for cards by name
     std::string searchName;
