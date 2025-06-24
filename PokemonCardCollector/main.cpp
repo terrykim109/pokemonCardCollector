@@ -32,50 +32,13 @@ int main()
         // Add new cards
         if (choice == '2')
         {
-            do
-            {
-                addNewCards(collection);
-                std::cout << "Would you like to add another card? (y/n): ";
-                std::cin >> choice;
-
-            } while (choice == 'y' || choice == 'Y');
-
-            // Saving
-            saveCollection(collection);
-            
-            if (!collection.empty())
-            {
-                std::cout << "Your updated Pokemon Card Collection:" << std::endl;
-                for (const auto &card : collection)
-                {
-                    card.displayCard();
-                    std::cout << "*--*--*--*--*--*--*--*--*\n";
-                }
-            }
+            addNewCards(collection);
         }
-
 
         // Delete a card
         if (choice == '3')
         {
-            std::string cardToDelete;
-            std::cout << "Enter the name of the card to delete: ";
-            std::cin >> cardToDelete;
-
-            auto it = std::remove_if(collection.begin(), collection.end(),
-                                     [&cardToDelete](const PokemonCard &card)
-                                     { return card.getName() == cardToDelete; });
-
-            if (it != collection.end())
-            {
-                collection.erase(it, collection.end());
-                std::cout << "Your card named '" << cardToDelete << "' has been deleted from your collection." << std::endl;
-                saveCollection(collection);
-            }
-            else
-            {
-                std::cout << "No card with the name '" << cardToDelete << "' was found in your collection." << std::endl;
-            }
+            deleteCard(collection);
         }
 
         // Export to the csv file.
